@@ -43,6 +43,7 @@ class MovieListViewModel(private val networkRepository: INetworkRepository) : Vi
         }
     }
 
+    //setting values to custom object to avoid api object coupling with view object
     private fun setValues(movies: Movies) {
         customMovies = mutableListOf()
         movies.data.forEach() { movie ->

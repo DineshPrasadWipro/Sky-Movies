@@ -31,7 +31,7 @@ class MovieListAdapter constructor(
 
     }
 
-    fun setMovieList(movies: List<CustomMovie>) {
+    private fun setMovieList(movies: List<CustomMovie>) {
         mData.clear()
         mData.addAll(movies)
         setData(mData)

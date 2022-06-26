@@ -1,30 +1,18 @@
 package com.ds.skymovies.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ds.skymovies.TestBase
-import com.ds.skymovies.model.CustomMovie
-import com.ds.skymovies.model.Movie
-import com.ds.skymovies.model.Movies
-import com.ds.skymovies.network.NetworkInterface
 import com.ds.skymovies.repository.MockNetworkRepository
-import com.ds.skymovies.repository.NetworkRepository
-import com.ds.skymovies.util.NetworkResponse
-import io.mockk.coEvery
-import io.mockk.every
-import io.mockk.mockkClass
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
-import org.hamcrest.core.Every
-import org.junit.*
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
-import java.net.SocketTimeoutException
+import org.junit.After
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class MovieListViewModelTest : TestBase() {
@@ -50,7 +38,7 @@ class MovieListViewModelTest : TestBase() {
 
     @Test
     fun `checking list count`() {
-        var expected = mockNetworkRepository.movies.data.size
+        val expected = mockNetworkRepository.movies.data.size
         var actual = 0
         runBlocking {
             viewModel.movieList.observeForever {

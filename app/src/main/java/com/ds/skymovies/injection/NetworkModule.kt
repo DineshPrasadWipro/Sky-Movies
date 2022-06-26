@@ -31,7 +31,7 @@ val appModule = module {
     val networkCacheInterceptor = Interceptor { chain ->
         val response = chain.proceed(chain.request())
 
-        var cacheControl = CacheControl.Builder()
+        val cacheControl = CacheControl.Builder()
             .maxAge(10, TimeUnit.MINUTES)
             .build()
 

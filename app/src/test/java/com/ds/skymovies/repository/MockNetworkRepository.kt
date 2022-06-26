@@ -24,7 +24,7 @@ class MockNetworkRepository : INetworkRepository {
     fun setMovies() {
 
         for (i in 0..2) {
-            var movie = Movie(i.toString(), "Animal", "12", "ss", "https://")
+            val movie = Movie(i.toString(), "Animal", "12", "ss", "https://")
             movieList.add(movie)
         }
         movies = Movies(movieList)

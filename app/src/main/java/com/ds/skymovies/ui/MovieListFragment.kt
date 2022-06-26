@@ -20,8 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieListFragment : BaseFragment() {
     private var _binding: FragmentMovieListBinding? = null
-
-    lateinit var adapter: MovieListAdapter
+    private var adapter: MovieListAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var movieList: List<CustomMovie> = mutableListOf()
     private val movieListViewModel: MovieListViewModel by viewModel()
@@ -42,7 +41,6 @@ class MovieListFragment : BaseFragment() {
 
         recyclerView = root.findViewById(R.id.movieList)
         binding.vm = movieListViewModel
-        adapter = MovieListAdapter(emptyList(), requireContext())
         recyclerView?.setup()
 
         return root
@@ -80,9 +78,9 @@ class MovieListFragment : BaseFragment() {
     }
 
     //setting list view adapter
-    private fun setList(list: List<CustomMovie>) {
+     fun setList(list: List<CustomMovie>) {
         movieList = list
-        adapter = MovieListAdapter(list, requireContext())
+        adapter = MovieListAdapter(movieList, requireContext())
         recyclerView?.adapter = adapter
     }
 

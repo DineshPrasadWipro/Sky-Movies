@@ -41,7 +41,7 @@ ext.versions = [
         'koin': '2.1.6' ,
         'retrofit': '2.6.1' ,
         'okhttp': '4.0.1',
-         'fragment_version':'1.4.1'
+        'fragment_version':'1.4.1'
 
 ]
 dependencies {
@@ -90,4 +90,5 @@ dependencies {
 
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     debugImplementation("androidx.fragment:fragment-testing:1.4.1")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.4.2")
 }
